@@ -1,0 +1,14 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  border: inherit;
+}
+
+html {
+  font-size: 62.5%;
+  border: border-box;
+}
+
+

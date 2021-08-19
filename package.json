@@ -1,0 +1,58 @@
+{
+  "name": "cryptochain",
+  "version": "1.0.0",
+  "description": "This is the advanced cryptochain app w a stronger genesis block and socketio",
+  "main": "index.js",
+  "scripts": {
+    "start": "npm run client:build & node index.js",
+    "dev": "npm run client:dev & npm run start:redis && cross-env ENV='development' nodemon index.js",
+    "dev:peer": "cross-env GENERATE_PEER_PORT='true' ENV='development' nodemon index.js",
+    "start:redis": "redis-server --daemonize yes",
+    "client:build": "npm run clean && parcel build client/src/index.html --out-dir client/dist",
+    "client:dev": "npm run clean && parcel client/src/index.html --out-dir client/dist ",
+    "compile:scss": "node-sass -w sass/main.scss client/src/index.css",
+    "clean": "rm -rf .cache client/dist .parcel-cache",
+    "test": "jest --verbose --colors --watchAll"
+  },
+  "jest": {
+    "testEnvironment": "node"
+  },
+  "keywords": [],
+  "author": "Anthony Xavier",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.12.0",
+    "@babel/plugin-proposal-class-properties": "^7.2.3",
+    "@babel/preset-react": "^7.14.5",
+    "cross-env": "^7.0.3",
+    "jest": "^27.0.6",
+    "morgan": "^1.10.0",
+    "nodemon": "^2.0.12"
+  },
+  "dependencies": {
+    "axios": "^0.21.1",
+    "babel-core": "^6.26.3",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "content-hash": "^2.5.2",
+    "core-js": "^3.16.1",
+    "cors": "^2.8.5",
+    "elliptic": "^6.5.4",
+    "express": "^4.17.1",
+    "hex-to-binary": "^1.0.1",
+    "history": "^5.0.1",
+    "index.css": "^1.0.0",
+    "mongoose": "^5.13.5",
+    "node-sass": "^6.0.1",
+    "parcel-bundler": "^1.10.3",
+    "react": "^17.0.2",
+    "react-bootstrap": "^0.32.4",
+    "react-dom": "^17.0.2",
+    "react-router-dom": "^5.2.0",
+    "redis": "^3.1.2",
+    "request": "^2.88.0",
+    "uuid": "^8.3.2"
+  }
+}

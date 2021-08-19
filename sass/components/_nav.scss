@@ -1,0 +1,7 @@
+a, a:visited, a:link {
+  color: $color-secondary;
+  text-decoration: none;
+}
+a:active, a:hover {
+  text-decoration: underline;
+}
