@@ -85,9 +85,9 @@ app.get('/api/wallet-info', (req, res) => {
 
   const address = wallet.publicKey;
 
-  res.status(200).json({ 
-    address, 
-    balance: Wallet.calcBalance({ chain: blockchain.chain, address }) 
+  res.status(200).json({
+    address,
+    balance: Wallet.calcBalance({ chain: blockchain.chain, address })
   });
 });
 
@@ -100,7 +100,7 @@ const syncWithRootState = () => {
     if (!error && response.statusCode === 200) {
       const rootChain = JSON.parse(body);
 
-      console.log('replace chain on a sync with', rootChain);
+      console.log('replace chain and sync with', rootChain);
       blockchain.replaceChain(rootChain);
     }
   });
